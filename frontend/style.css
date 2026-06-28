@@ -1,0 +1,1103 @@
+/* =====================================================
+        GOOGLE FONT & GLOBAL RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #071426,
+        #0f172a,
+        #132238
+    );
+
+    background-size:300% 300%;
+
+    animation:bgAnimation 12s ease infinite;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    overflow-x:hidden;
+
+    color:white;
+
+}
+
+
+/* =====================================================
+        BACKGROUND ANIMATION
+===================================================== */
+
+@keyframes bgAnimation{
+
+    0%{
+
+        background-position:0% 50%;
+
+    }
+
+    50%{
+
+        background-position:100% 50%;
+
+    }
+
+    100%{
+
+        background-position:0% 50%;
+
+    }
+
+}
+
+
+/* =====================================================
+        GLOWING CIRCLES
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:320px;
+
+    height:320px;
+
+    background:#38bdf8;
+
+    filter:blur(170px);
+
+    opacity:.20;
+
+    top:-120px;
+
+    left:-80px;
+
+    z-index:-2;
+
+}
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:320px;
+
+    height:320px;
+
+    background:#14b8a6;
+
+    filter:blur(180px);
+
+    opacity:.18;
+
+    bottom:-120px;
+
+    right:-80px;
+
+    z-index:-2;
+
+}
+
+
+
+/* =====================================================
+        MAIN CONTAINER
+===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:860px;
+
+    border-radius:24px;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+    0 12px 40px rgba(0,0,0,.35);
+
+}
+
+
+
+/* =====================================================
+        HEADER
+===================================================== */
+
+header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+
+header h1{
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    color:#ffffff;
+
+}
+
+
+header p{
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+    line-height:28px;
+
+}
+
+
+
+/* =====================================================
+        CHAT WINDOW
+===================================================== */
+
+.chat-section{
+
+    margin-bottom:30px;
+
+}
+
+
+.bot-card{
+
+    background:rgba(255,255,255,.06);
+
+    border-left:5px solid #38bdf8;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    transition:.35s;
+
+}
+
+
+.bot-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 8px 25px rgba(56,189,248,.25);
+
+}
+
+
+.bot-header{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#38bdf8;
+
+    margin-bottom:18px;
+
+}
+
+
+.bot-body{
+
+    color:#e2e8f0;
+
+    line-height:1.9;
+
+    font-size:15px;
+
+}
+
+
+
+/* =====================================================
+        INPUT CARD
+===================================================== */
+
+.input-section{
+
+    margin-bottom:35px;
+
+}
+
+
+.input-card{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:18px;
+
+    padding:28px;
+
+}
+
+
+
+.input-card label{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-weight:600;
+
+    color:#ffffff;
+
+}
+
+
+
+/* =====================================================
+        DROPDOWN
+===================================================== */
+
+select{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    color:#111827;
+
+    font-size:15px;
+
+    margin-bottom:24px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+
+select:focus{
+
+    box-shadow:
+
+    0 0 0 4px rgba(56,189,248,.35);
+
+}
+
+
+
+/* =====================================================
+        BUTTON
+===================================================== */
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        90deg,
+        #38bdf8,
+        #0ea5e9
+    );
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 10px 25px rgba(14,165,233,.40);
+
+}
+
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* =====================================================
+        FORECAST SECTION
+===================================================== */
+
+.forecast-section{
+
+    margin-bottom:42px;
+
+}
+
+
+.forecast-section h2{
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+    color:#ffffff;
+
+}
+
+
+.forecast-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+/* =====================================================
+        FORECAST CARD
+===================================================== */
+
+.forecast-card{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.forecast-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 12px 28px rgba(56,189,248,.18);
+
+    border-color:#38bdf8;
+
+}
+
+
+.forecast-card h3{
+
+    color:#38bdf8;
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+}
+
+
+.forecast-card div{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+
+
+/* =====================================================
+        AI RESPONSE SECTION
+===================================================== */
+
+.response-section{
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.response-section h2{
+
+    margin-bottom:20px;
+
+    color:#ffffff;
+
+}
+
+
+
+/* =====================================================
+        RESPONSE BOX
+===================================================== */
+
+#response{
+
+    background:#08111f;
+
+    border-left:5px solid #38bdf8;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    min-height:170px;
+
+    line-height:1.9;
+
+    color:#e2e8f0;
+
+    font-size:15px;
+
+}
+
+
+
+/* =====================================================
+        PREDICTION VALUE
+===================================================== */
+
+.prediction-value{
+
+    font-size:36px;
+
+    font-weight:700;
+
+    color:#22c55e;
+
+    margin:15px 0;
+
+}
+
+
+.prediction-title{
+
+    color:#38bdf8;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.value{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+.unit{
+
+    font-size:14px;
+
+    color:#94a3b8;
+
+    margin-left:4px;
+
+}
+
+
+
+/* =====================================================
+        AI TYPING BOX
+===================================================== */
+
+.typing{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:10px;
+
+}
+
+
+.typing span{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#38bdf8;
+
+    animation:typingBounce 1.4s infinite;
+
+}
+
+
+.typing span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+
+.typing span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+
+@keyframes typingBounce{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+
+/* =====================================================
+        LOADING BUTTON
+===================================================== */
+
+.loading{
+
+    opacity:.8;
+
+    pointer-events:none;
+
+}
+
+
+.loading::after{
+
+    content:"";
+
+    width:18px;
+
+    height:18px;
+
+    border:3px solid rgba(255,255,255,.35);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    margin-left:12px;
+
+    animation:spin .8s linear infinite;
+
+    vertical-align:middle;
+
+}
+
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+/* =====================================================
+        NICE SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#071426;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#38bdf8;
+
+    border-radius:30px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#0ea5e9;
+
+}
+
+/* =====================================================
+        FADE-IN ANIMATION
+===================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+        APPLY ANIMATION
+===================================================== */
+
+header,
+.chat-section,
+.input-section,
+.forecast-section,
+.response-section{
+
+    animation:fadeIn .8s ease forwards;
+
+}
+
+
+.chat-section{
+
+    animation-delay:.15s;
+
+}
+
+.input-section{
+
+    animation-delay:.30s;
+
+}
+
+.forecast-section{
+
+    animation-delay:.45s;
+
+}
+
+.response-section{
+
+    animation-delay:.60s;
+
+}
+
+
+
+/* =====================================================
+        FORECAST CARD FLOAT EFFECT
+===================================================== */
+
+.forecast-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.forecast-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.15),
+
+        transparent
+
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.8s;
+
+}
+
+
+.forecast-card:hover::before{
+
+    left:140%;
+
+}
+
+
+
+/* =====================================================
+        BUTTON RIPPLE EFFECT
+===================================================== */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    transition:.6s;
+
+}
+
+
+button:hover::before{
+
+    width:500px;
+
+    height:500px;
+
+}
+
+
+
+/* =====================================================
+        INPUT HOVER
+===================================================== */
+
+select:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* =====================================================
+        RESULT HIGHLIGHT
+===================================================== */
+
+.success{
+
+    color:#22c55e;
+
+    font-weight:600;
+
+}
+
+
+.warning{
+
+    color:#facc15;
+
+    font-weight:600;
+
+}
+
+
+.danger{
+
+    color:#ef4444;
+
+    font-weight:600;
+
+}
+
+
+
+/* =====================================================
+        CARD TRANSITION
+===================================================== */
+
+.bot-card,
+.input-card,
+.response-section{
+
+    transition:.35s;
+
+}
+
+
+.bot-card:hover,
+.input-card:hover,
+.response-section:hover{
+
+    box-shadow:
+
+    0 10px 30px rgba(56,189,248,.18);
+
+}
+
+
+
+/* =====================================================
+        MOBILE RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+.container{
+
+    padding:25px;
+
+}
+
+header h1{
+
+    font-size:32px;
+
+}
+
+.forecast-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+button{
+
+    font-size:16px;
+
+}
+
+}
+
+
+
+@media(max-width:600px){
+
+body{
+
+    padding:15px;
+
+}
+
+.container{
+
+    padding:18px;
+
+}
+
+header h1{
+
+    font-size:28px;
+
+}
+
+header p{
+
+    font-size:14px;
+
+}
+
+.bot-body{
+
+    font-size:14px;
+
+}
+
+.forecast-card h3{
+
+    font-size:18px;
+
+}
+
+.forecast-card div{
+
+    font-size:24px;
+
+}
+
+#response{
+
+    font-size:14px;
+
+}
+
+}
+
+
+
+/* =====================================================
+        OPTIONAL GLASS BORDER GLOW
+===================================================== */
+
+.container:hover{
+
+    box-shadow:
+
+    0 15px 50px rgba(56,189,248,.18);
+
+}
+
+
+
+/* =====================================================
+        REMOVE DEFAULT SELECT ARROW (OPTIONAL)
+===================================================== */
+
+select{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23000000' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5l6.5 6 6.5-6'/%3E%3C/svg%3E");
+
+    background-repeat:no-repeat;
+
+    background-position:right 15px center;
+
+    background-size:16px;
+
+}
+
+
+
+/* =====================================================
+        SMOOTH SCROLL
+===================================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Groundwater AI Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>🌍 Groundwater AI Assistant</h1>
+
+        <p>
+            AI-powered 3-Month Groundwater Outlook
+        </p>
+
+    </header>
+
+
+
+    <!-- ================= CHAT ================= -->
+
+    <section class="chat-section">
+
+        <div class="bot-card">
+
+            <div class="bot-header">
+
+                🤖 AI Assistant
+
+            </div>
+
+            <div class="bot-body">
+
+                Welcome!
+
+                <br><br>
+
+                Select a district and I'll generate a
+                three-quarter groundwater forecast using
+                historical groundwater trends and rainfall
+                patterns.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FORM ================= -->
+
+    <section class="input-section">
+
+        <div class="input-card">
+
+            <label>
+
+                Select District
+
+            </label>
+
+            <select id="district">
+
+                <option value="">
+                    Choose District
+                </option>
+
+                <option>Amravati</option>
+                <option>Beed</option>
+                <option>Bhandara</option>
+                <option>Chandrapur</option>
+                <option>Gadchiroli</option>
+                <option>Gondia</option>
+                <option>Kolhapur</option>
+                <option>Nagpur</option>
+                <option>Palghar</option>
+                <option>Pune</option>
+                <option>Raigad</option>
+                <option>Satara</option>
+                <option>Thane</option>
+                <option>Wardha</option>
+
+            </select>
+
+            <button id="predictBtn">
+
+                🔮 Predict 3-Month Outlook
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FORECAST ================= -->
+
+    <section class="forecast-section">
+
+        <h2>
+
+            📈 Forecast
+
+        </h2>
+
+
+        <div class="forecast-grid">
+
+            <div class="forecast-card">
+
+                <h3>Quarter 1</h3>
+
+                <div id="q1">
+
+                    <span class="value">--</span>
+
+                    <span class="unit">mbgl</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="forecast-card">
+
+                <h3>Quarter 2</h3>
+
+                <div id="q2">
+
+                    <span class="value">--</span>
+
+                    <span class="unit">mbgl</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="forecast-card">
+
+                <h3>Quarter 3</h3>
+
+                <div id="q3">
+
+                    <span class="value">--</span>
+
+                    <span class="unit">mbgl</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- ================= AI RESPONSE ================= -->
+
+    <section class="response-section">
+
+        <h2>
+
+            🤖 AI Explanation
+
+        </h2>
+
+
+        <div id="response">
+
+            <p><strong>Waiting for prediction...</strong></p>
+
+            <br>
+
+            <p>
+                Select a district and click <strong>Predict</strong> to generate an
+                AI-powered groundwater outlook.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
