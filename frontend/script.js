@@ -56,7 +56,7 @@ predictBtn.addEventListener("click", async function (e) {
 
         // Send request
 
-        const res = await fetch("http://127.0.0.1:5000/predict", {
+        const res = await fetch("https://groundwater-ai-assistant-3rfp.onrender.com/predict", {
 
             method: "POST",
 
