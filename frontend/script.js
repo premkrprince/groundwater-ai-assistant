@@ -121,31 +121,31 @@ else {
 }
 
 response.innerHTML = `
-    <h3>Prediction Complete ✅</h3>
+<h3>🤖 AI Groundwater Analysis ✅</h3>
 
-    <p><strong>District:</strong> ${district.value}</p>
+<p><strong>District:</strong> ${district.value}</p>
 
-    <p>
-        Forecast generated for
-        <strong>${forecast[0].year}</strong>
-        Quarter
-        <strong>${forecast[0].quarter}</strong>
-        to
-        Quarter
-        <strong>${forecast[2].quarter}</strong>.
-    </p>
+<p>
+Forecast generated for
+<strong>${forecast[0].year}</strong>
+Quarter
+<strong>${forecast[0].quarter}</strong>
+to
+Quarter
+<strong>${forecast[2].quarter}</strong>.
+</p>
 
-    <br>
+<br>
 
-    <p>${status}</p>
+${marked.parse(data.explanation)}
 
-    <br>
+<br><br>
 
-    <p>
-        This forecast is generated using historical groundwater trends,
-        rainfall patterns, lag-based groundwater behaviour and a trained
-        machine learning model.
-    </p>
+<p>
+This forecast is generated using historical groundwater trends,
+rainfall patterns, lag-based groundwater behaviour and a trained
+machine learning model.
+</p>
 `;
     }
 
