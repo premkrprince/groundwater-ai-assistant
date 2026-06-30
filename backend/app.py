@@ -52,6 +52,12 @@ def explanation():
         "explanation": explanation
     })
 
-
+@app.route("/routes")
+def routes():
+    return {
+        "routes": sorted(
+            str(rule) for rule in app.url_map.iter_rules()
+        )
+    }
 if __name__ == "__main__":
     app.run(debug=True)

@@ -420,19 +420,60 @@ predictBtn.addEventListener("click",async()=>{
 
         const data=await res.json();
 
-        latestPrediction=data;
+        const forecast = data.forecast;
 
-        const forecast=data.forecast;
+latestPrediction = {
+    forecast: forecast,
+    explanation: ""
+};
 
-        updateForecastCards(forecast);
+// Show prediction immediately
+updateForecastCards(forecast);
 
-        updateChart(forecast);
+updateChart(forecast);
 
-        updateRisk(forecast);
+updateRisk(forecast);
 
-        updateResponse(data,forecast);
+saveHistory(district.value, forecast);
 
-        saveHistory(district.value,forecast);
+// Show loading while AI explanation is generated
+response.innerHTML = `
+<h3>🤖 AI Explanation</h3>
+
+<div class="typing">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<p>Generating AI explanation...</p>
+`;
+
+// Request AI explanation separately
+const explainRes = await fetch(
+    "https://groundwater-ai-assistant-3rfp.onrender.com/explanation",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            district: district.value,
+            forecast: forecast
+        })
+    }
+);
+
+const explainData = await explainRes.json();
+
+latestPrediction.explanation = explainData.explanation;
+
+updateResponse(
+    {
+        explanation: explainData.explanation
+    },
+    forecast
+);
 
     }
 
