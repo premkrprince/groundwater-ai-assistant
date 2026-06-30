@@ -1101,3 +1101,308 @@ html{
     scroll-behavior:smooth;
 
 }
+
+
+
+
+/* ==========================
+   FORECAST GRAPH
+========================== */
+
+.graph-section{
+    margin-top:40px;
+}
+
+.graph-section h2{
+    color:#ffffff;
+    margin-bottom:20px;
+}
+
+.graph-card{
+
+    background:#2f394d;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.graph-card canvas{
+
+    width:100% !important;
+
+    height:420px !important;
+
+}
+
+/* =====================================================
+        THEME TOGGLE
+===================================================== */
+
+header{
+    position:relative;
+}
+
+#themeToggle{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    font-size:20px;
+
+}
+
+#themeToggle:hover{
+
+    transform:rotate(20deg) scale(1.08);
+
+}
+
+
+/* =====================================================
+        RISK CARD
+===================================================== */
+
+.risk-section{
+
+    margin:40px 0;
+
+}
+
+.risk-card{
+
+    padding:28px;
+
+    border-radius:18px;
+
+    transition:.4s;
+
+    border-left:8px solid;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.risk-card h3{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
+}
+
+.risk-card p{
+
+    color:#d1d5db;
+
+    line-height:1.8;
+
+}
+
+.low{
+    border-left:8px solid #22c55e;
+}
+
+.medium{
+    border-left:8px solid #facc15;
+}
+
+.high{
+    border-left:8px solid #ef4444;
+}
+
+
+/* =====================================================
+        EXPORT BUTTON
+===================================================== */
+
+.export-section{
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+#downloadBtn{
+
+    max-width:340px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+        FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:50px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+    line-height:28px;
+
+}
+
+
+/* =====================================================
+        CHART CARD IMPROVEMENT
+===================================================== */
+
+.graph-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+/* =====================================================
+        LIGHT THEME
+===================================================== */
+
+body.light{
+
+    background:#eef4fb;
+
+    color:#111827;
+
+}
+
+body.light .container{
+
+    background:white;
+
+    color:#111827;
+
+}
+
+body.light .forecast-card,
+
+body.light .bot-card,
+
+body.light .input-card,
+
+body.light .graph-card,
+
+body.light .response-section,
+
+body.light .risk-card{
+
+    background:#f8fafc;
+
+    color:#111827;
+
+}
+
+body.light #response{
+
+    background:#ffffff;
+
+    color:#111827;
+
+}
+/* =====================================
+   LIGHT MODE
+===================================== */
+
+body.light-mode{
+    background:#eef4ff;
+    color:#222;
+}
+
+body.light-mode .container{
+    background:#ffffff;
+    border:1px solid #dbe7ff;
+}
+
+body.light-mode header h1,
+body.light-mode h2,
+body.light-mode h3{
+    color:#1f2937;
+}
+
+body.light-mode .bot-card,
+body.light-mode .input-card,
+body.light-mode .forecast-card,
+body.light-mode .graph-card,
+body.light-mode .response-section,
+body.light-mode .risk-card{
+    background:#f8fbff;
+    color:#222;
+    border:1px solid #d8e5ff;
+}
+
+body.light-mode #response{
+    background:#ffffff;
+    color:#222;
+}
+
+body.light-mode .graph-section canvas{
+    background:#ffffff;
+}
+
+body.light-mode footer{
+    color:#555;
+}
+
+body.light-mode select{
+    background:white;
+    color:#222;
+}
+
+body.light-mode button{
+    color:white;
+}
+
+body.light-mode .forecast-card .unit{
+    color:#666;
+}
+
+body.light-mode .bot-body{
+    color:#333;
+}
+
+body.light-mode .risk-card.low{
+    background:#e8fff1;
+}
+
+body.light-mode .risk-card.moderate{
+    background:#fff8df;
+}
+
+body.light-mode .risk-card.high{
+    background:#ffe8e8;
+}

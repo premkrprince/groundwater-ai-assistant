@@ -35,6 +35,11 @@
     <header>
 
         <h1>🌍 Groundwater AI Assistant</h1>
+        <button id="themeToggle">
+
+            🌙
+
+        </button>
 
         <p>
             AI-powered 3-Month Groundwater Outlook
@@ -184,7 +189,36 @@
         </div>
 
     </section>
+    <!-- ================= RISK INDICATOR ================= -->
 
+<section class="risk-section">
+
+    <h2>⚠️ Groundwater Risk</h2>
+
+    <div id="riskCard" class="risk-card low">
+
+        <h3 id="riskTitle">Waiting for Prediction...</h3>
+
+        <p id="riskText">
+            Generate a prediction to assess groundwater risk.
+        </p>
+
+    </div>
+
+</section>
+    <!-- ================= FORECAST GRAPH ================= -->
+
+    <section class="graph-section">
+
+        <h2>📊 Forecast Trend</h2>
+
+        <div class="graph-card">
+
+            <canvas id="forecastChart"></canvas>
+
+        </div>
+
+    </section>
 
 
 
@@ -213,15 +247,26 @@
         </div>
 
     </section>
+    <!-- ================= EXPORT ================= -->
+
+<section class="export-section">
+
+    <button id="downloadBtn">
+
+        📄 Download Prediction Report
+
+    </button>
+
+</section>
 
 
 
 </div>
 
 
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
