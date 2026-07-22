@@ -15,7 +15,6 @@ const q2 = document.getElementById("q2");
 const q3 = document.getElementById("q3");
 
 const response = document.getElementById("response");
-
 const riskCard = document.getElementById("riskCard");
 const riskTitle = document.getElementById("riskTitle");
 const riskText = document.getElementById("riskText");
@@ -23,6 +22,8 @@ const riskText = document.getElementById("riskText");
 const downloadBtn = document.getElementById("downloadBtn");
 
 const themeToggle = document.getElementById("themeToggle");
+const language = document.getElementById("language");
+language.addEventListener("change", updateLanguage);
 
 // ===============================
 // GLOBAL VARIABLES
@@ -34,7 +35,112 @@ let latestPrediction = null;
 
 let predictionHistory =
 JSON.parse(localStorage.getItem("predictionHistory")) || [];
+const translations = {
 
+    en: {
+
+        selectDistrict: "Select District",
+        selectLanguage: "Select Language",
+        predict: "🔮 Predict 3-Month Outlook",
+        forecast: "Forecast",
+        risk: "Groundwater Risk",
+        trend: "Forecast Trend",
+        explanation: "AI Explanation",
+        download: "Download Prediction Report",
+        welcome: "Welcome!",
+        botMessage: "Select a district and I'll generate a three-quarter groundwater forecast using historical groundwater trends and rainfall patterns.",
+        waiting: "Waiting for prediction...",
+        analyzing: "Analyzing groundwater...",
+        chooseDistrict: "Choose District"
+
+    },
+
+    hi: {
+
+        selectDistrict: "जिला चुनें",
+        selectLanguage: "भाषा चुनें",
+        predict: "🔮 अगले 3 महीनों का पूर्वानुमान",
+        forecast: "पूर्वानुमान",
+        risk: "भूजल जोखिम",
+        trend: "पूर्वानुमान ग्राफ",
+        explanation: "AI व्याख्या",
+        download: "रिपोर्ट डाउनलोड करें",
+        welcome: "स्वागत है!",
+        botMessage: "जिला चुनें और मैं ऐतिहासिक भूजल रुझानों तथा वर्षा के आधार पर अगले तीन तिमाहियों का पूर्वानुमान तैयार करूंगा।",
+        waiting: "पूर्वानुमान की प्रतीक्षा...",
+        analyzing: "भूजल विश्लेषण किया जा रहा है...",
+        chooseDistrict: "जिला चुनें"
+
+    },
+
+    mr: {
+
+        selectDistrict: "जिल्हा निवडा",
+        selectLanguage: "भाषा निवडा",
+        predict: "🔮 पुढील 3 महिन्यांचा अंदाज",
+        forecast: "अंदाज",
+        risk: "भूजल धोका",
+        trend: "अंदाजाचा आलेख",
+        explanation: "AI स्पष्टीकरण",
+        download: "अहवाल डाउनलोड करा",
+        welcome: "स्वागत आहे!",
+        botMessage: "जिल्हा निवडा आणि ऐतिहासिक भूजल पातळी व पर्जन्यमानाच्या आधारे पुढील तीन तिमाहींचा अंदाज तयार केला जाईल.",
+        waiting: "अंदाजाची प्रतीक्षा...",
+        analyzing: "भूजल विश्लेषण सुरू आहे...",
+        chooseDistrict: "जिल्हा निवडा"
+
+    }
+
+};
+
+function updateLanguage() {
+
+    const lang = language.value;
+
+    // Labels
+    document.getElementById("districtLabel").innerText =
+        translations[lang].selectDistrict;
+
+    document.getElementById("languageLabel").innerText =
+        translations[lang].selectLanguage;
+
+    // Buttons
+    document.getElementById("predictText").innerText =
+        translations[lang].predict;
+
+    document.getElementById("downloadText").innerText =
+        translations[lang].download;
+
+    // Headings
+    document.getElementById("forecastTitle").innerHTML =
+        "📈 " + translations[lang].forecast;
+
+    document.getElementById("riskHeading").innerHTML =
+        "⚠️ " + translations[lang].risk;
+
+    document.getElementById("trendHeading").innerHTML =
+        "📊 " + translations[lang].trend;
+
+    document.getElementById("explanationHeading").innerHTML =
+        "🤖 " + translations[lang].explanation;
+
+    // Dropdown first option
+    document.getElementById("chooseDistrict").innerText =
+        translations[lang].chooseDistrict;
+
+    // Optional (only if you added these IDs in HTML)
+    const botHeader = document.getElementById("botHeader");
+    const botBody = document.getElementById("botBody");
+
+    if (botHeader) {
+        botHeader.innerHTML = "🤖 AI Assistant";
+    }
+
+    if (botBody) {
+        botBody.innerHTML =
+            `<strong>${translations[lang].welcome}</strong><br><br>${translations[lang].botMessage}`;
+    }
+}
 
 
 // ===============================
@@ -374,7 +480,7 @@ predictBtn.addEventListener("click",async()=>{
 
     predictBtn.disabled=true;
 
-    predictBtn.innerHTML="⏳ Predicting...";
+    predictBtn.innerHTML =`⏳ ${translations[language.value].analyzing}`;
 
     response.innerHTML=`
 
@@ -410,7 +516,9 @@ predictBtn.addEventListener("click",async()=>{
 
             body:JSON.stringify({
 
-                district:district.value
+                district:district.value,
+
+                language:language.value
 
             })
 
@@ -448,7 +556,7 @@ predictBtn.addEventListener("click",async()=>{
 
         predictBtn.disabled=false;
 
-        predictBtn.innerHTML="🔮 Predict 3-Month Outlook";
+        predictBtn.innerHTML =`🔮 <span id="predictText">${translations[language.value].predict}</span>`;
 
     }
 
@@ -556,6 +664,8 @@ if (themeToggle) {
 // =====================================================
 
 window.onload = () => {
+
+    updateLanguage();
 
     console.log("Groundwater AI Assistant Ready ✅");
 

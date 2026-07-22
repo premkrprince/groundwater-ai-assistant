@@ -1,21 +1,15 @@
 from flask import Flask, request, jsonify
+from chatbot.gemini import generate_groundwater_explanation
+from forecast import forecast_next_quarters
 from flask_cors import CORS
 
-from forecast import forecast_next_quarters
-from chatbot.gemini import generate_groundwater_explanation
-
 app = Flask(__name__)
-CORS(app)
 
+CORS(app)
 
 @app.route("/")
 def home():
     return "Groundwater Prediction API is running!"
-
-
-# ======================================
-# FAST PREDICTION
-# ======================================
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -24,40 +18,20 @@ def predict():
 
     district = data["district"]
 
+    language = data.get("language", "en")
+
     forecast = forecast_next_quarters(district)
-
-    return jsonify({
-        "forecast": forecast
-    })
-
-
-# ======================================
-# AI EXPLANATION
-# ======================================
-
-@app.route("/explanation", methods=["POST"])
-def explanation():
-
-    data = request.get_json()
-
-    district = data["district"]
-    forecast = data["forecast"]
 
     explanation = generate_groundwater_explanation(
         district,
-        forecast
+        forecast,
+        language
     )
 
     return jsonify({
+        "forecast": forecast,
         "explanation": explanation
     })
 
-@app.route("/routes")
-def routes():
-    return {
-        "routes": sorted(
-            str(rule) for rule in app.url_map.iter_rules()
-        )
-    }
 if __name__ == "__main__":
     app.run(debug=True)

@@ -13,7 +13,16 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=API_KEY)
 
 
-def generate_groundwater_explanation(district, forecast):
+def generate_groundwater_explanation(district, forecast, language="en"):
+  print("Selected language:", language)
+  if language == "hi":
+    output_language = "Hindi"
+
+  elif language == "mr":
+    output_language = "Marathi"
+
+  else:
+    output_language = "English"
 
     prompt = f"""
 You are an expert hydrogeologist and groundwater policy advisor.

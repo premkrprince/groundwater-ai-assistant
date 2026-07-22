@@ -86,15 +86,13 @@
 
         <div class="input-card">
 
-            <label>
-
+            <label id="districtLabel">
                 Select District
-
             </label>
 
             <select id="district">
 
-                <option value="">
+                <option value="" id="chooseDistrict">
                     Choose District
                 </option>
 
@@ -115,9 +113,19 @@
 
             </select>
 
+            <label id="languageLabel">
+                Select Language
+            </label>
+
+            <select id="language">
+                <option value="en">🇬🇧 English</option>
+                <option value="hi">🇮🇳 Hindi</option>
+                <option value="mr">🇮🇳 Marathi</option>
+            </select>
+
             <button id="predictBtn">
 
-                🔮 Predict 3-Month Outlook
+                🔮 <span id="predictText">Predict 3-Month Outlook</span>
 
             </button>
 
@@ -131,10 +139,8 @@
 
     <section class="forecast-section">
 
-        <h2>
-
+        <h2 id="forecastTitle">
             📈 Forecast
-
         </h2>
 
 
@@ -193,7 +199,7 @@
 
 <section class="risk-section">
 
-    <h2>⚠️ Groundwater Risk</h2>
+    <h2 id="riskHeading">⚠️ Groundwater Risk</h2>
 
     <div id="riskCard" class="risk-card low">
 
@@ -210,7 +216,7 @@
 
     <section class="graph-section">
 
-        <h2>📊 Forecast Trend</h2>
+        <h2 id="trendHeading">📊 Forecast Trend</h2>
 
         <div class="graph-card">
 
@@ -226,7 +232,7 @@
 
     <section class="response-section">
 
-        <h2>
+        <h2 id="explanationHeading">
 
             🤖 AI Explanation
 
@@ -253,7 +259,7 @@
 
     <button id="downloadBtn">
 
-        📄 Download Prediction Report
+        📄 <span id="downloadText">Download Prediction Report</span>
 
     </button>
 
