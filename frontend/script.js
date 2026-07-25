@@ -532,7 +532,7 @@ predictBtn.addEventListener("click",async()=>{
 
         const res=await fetch(
 
-        "http://127.0.0.1:5000/predict",
+        "https://groundwater-ai-assistant-3rfp.onrender.com/predict",
 
         {
 
