@@ -51,7 +51,17 @@ const translations = {
         botMessage: "Select a district and I'll generate a three-quarter groundwater forecast using historical groundwater trends and rainfall patterns.",
         waiting: "Waiting for prediction...",
         analyzing: "Analyzing groundwater...",
-        chooseDistrict: "Choose District"
+        chooseDistrict: "Choose District",
+        waitingPrediction: "Waiting for Prediction...",
+        waitingRisk: "Generate a prediction to assess groundwater risk.",
+
+        lowRisk: "🟢 Low Risk",
+        moderateRisk: "🟡 Moderate Risk",
+        highRisk: "🔴 High Risk",
+
+        lowRiskText: "Groundwater levels are healthy. No immediate concern.",
+        moderateRiskText: "Groundwater levels are moderate. Water conservation is recommended.",
+        highRiskText: "Groundwater levels are low. Immediate groundwater recharge measures are recommended."
 
     },
 
@@ -69,7 +79,17 @@ const translations = {
         botMessage: "जिला चुनें और मैं ऐतिहासिक भूजल रुझानों तथा वर्षा के आधार पर अगले तीन तिमाहियों का पूर्वानुमान तैयार करूंगा।",
         waiting: "पूर्वानुमान की प्रतीक्षा...",
         analyzing: "भूजल विश्लेषण किया जा रहा है...",
-        chooseDistrict: "जिला चुनें"
+        chooseDistrict: "जिला चुनें",
+        waitingPrediction: "पूर्वानुमान की प्रतीक्षा...",
+        waitingRisk: "भूजल जोखिम जानने के लिए पूर्वानुमान तैयार करें।",
+
+        lowRisk: "🟢 कम जोखिम",
+        moderateRisk: "🟡 मध्यम जोखिम",
+        highRisk: "🔴 उच्च जोखिम",
+
+        lowRiskText: "भूजल स्तर सुरक्षित है। तत्काल कोई चिंता नहीं है।",
+        moderateRiskText: "भूजल स्तर मध्यम है। जल संरक्षण की सलाह दी जाती है।",
+        highRiskText: "भूजल स्तर कम है। तत्काल भूजल पुनर्भरण उपाय आवश्यक हैं।"
 
     },
 
@@ -87,7 +107,17 @@ const translations = {
         botMessage: "जिल्हा निवडा आणि ऐतिहासिक भूजल पातळी व पर्जन्यमानाच्या आधारे पुढील तीन तिमाहींचा अंदाज तयार केला जाईल.",
         waiting: "अंदाजाची प्रतीक्षा...",
         analyzing: "भूजल विश्लेषण सुरू आहे...",
-        chooseDistrict: "जिल्हा निवडा"
+        chooseDistrict: "जिल्हा निवडा",
+        waitingPrediction: "अंदाजाची प्रतीक्षा...",
+        waitingRisk: "भूजल धोका जाणून घेण्यासाठी अंदाज तयार करा.",
+
+        lowRisk: "🟢 कमी धोका",
+        moderateRisk: "🟡 मध्यम धोका",
+        highRisk: "🔴 उच्च धोका",
+
+        lowRiskText: "भूजल पातळी चांगली आहे. तातडीची चिंता नाही.",
+        moderateRiskText: "भूजल पातळी मध्यम आहे. पाणी संवर्धन करण्याची शिफारस केली जाते.",
+        highRiskText: "भूजल पातळी कमी आहे. तातडीने भूजल पुनर्भरण उपाय आवश्यक आहेत."
 
     }
 
@@ -127,6 +157,9 @@ function updateLanguage() {
     // Dropdown first option
     document.getElementById("chooseDistrict").innerText =
         translations[lang].chooseDistrict;
+        riskTitle.innerText = translations[lang].waitingPrediction;
+
+        riskText.innerText = translations[lang].waitingRisk;
 
     // Optional (only if you added these IDs in HTML)
     const botHeader = document.getElementById("botHeader");
@@ -375,10 +408,9 @@ function updateRisk(forecast){
 
         riskCard.classList.add("low");
 
-        riskTitle.innerHTML = "🟢 Low Risk";
+        riskTitle.innerHTML =translations[language.value].lowRisk;
 
-        riskText.innerHTML =
-        "Groundwater levels are healthy. No immediate concern.";
+        riskText.innerHTML =translations[language.value].lowRiskText;
 
     }
 
@@ -386,10 +418,9 @@ function updateRisk(forecast){
 
         riskCard.classList.add("moderate");
 
-        riskTitle.innerHTML = "🟡 Moderate Risk";
+        riskTitle.innerHTML =translations[language.value].moderateRisk;
 
-        riskText.innerHTML =
-        "Groundwater levels are moderate. Water conservation is recommended.";
+        riskText.innerHTML =translations[language.value].moderateRiskText;
 
     }
 
@@ -397,10 +428,9 @@ function updateRisk(forecast){
 
         riskCard.classList.add("high");
 
-        riskTitle.innerHTML = "🔴 High Risk";
+        riskTitle.innerHTML =translations[language.value].highRisk;
 
-        riskText.innerHTML =
-        "Groundwater levels are low. Immediate groundwater recharge measures are recommended.";
+        riskText.innerHTML =translations[language.value].highRiskText;
 
     }
 
@@ -484,7 +514,7 @@ predictBtn.addEventListener("click",async()=>{
 
     response.innerHTML=`
 
-    <h3>Analyzing groundwater...</h3>
+    <h3>${translations[language.value].analyzing}</h3>
 
     <div class="typing">
 
@@ -502,7 +532,7 @@ predictBtn.addEventListener("click",async()=>{
 
         const res=await fetch(
 
-        "https://groundwater-ai-assistant-3rfp.onrender.com/predict",
+        "http://127.0.0.1:5000/predict",
 
         {
 
