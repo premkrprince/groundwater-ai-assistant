@@ -18,6 +18,7 @@ const response = document.getElementById("response");
 const riskCard = document.getElementById("riskCard");
 const riskTitle = document.getElementById("riskTitle");
 const riskText = document.getElementById("riskText");
+const riskIllustration =document.getElementById("riskIllustration");
 
 const downloadBtn = document.getElementById("downloadBtn");
 
@@ -452,6 +453,7 @@ function updateRisk(forecast){
         riskTitle.innerHTML =translations[language.value].lowRisk;
 
         riskText.innerHTML =translations[language.value].lowRiskText;
+        riskIllustration.src ="images/low-risk.png";
 
     }
 
@@ -462,6 +464,7 @@ function updateRisk(forecast){
         riskTitle.innerHTML =translations[language.value].moderateRisk;
 
         riskText.innerHTML =translations[language.value].moderateRiskText;
+        riskIllustration.src ="images/moderate-risk.png";
 
     }
 
@@ -472,6 +475,7 @@ function updateRisk(forecast){
         riskTitle.innerHTML =translations[language.value].highRisk;
 
         riskText.innerHTML =translations[language.value].highRiskText;
+        riskIllustration.src ="images/high-risk.png";
 
     }
 

@@ -14,6 +14,7 @@ genai.configure(api_key=API_KEY)
 
 
 def generate_groundwater_explanation(district, forecast, language="en"):
+  return "TEST HINDI RESPONSE"
   print("Selected language:", language)
   if language == "hi":
     language_instruction = """

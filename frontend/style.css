@@ -1406,3 +1406,38 @@ body.light-mode .risk-card.moderate{
 body.light-mode .risk-card.high{
     background:#ffe8e8;
 }
+
+/* ================= Risk Illustration ================= */
+
+.graph-card{
+    position: relative;
+    overflow: hidden;
+}
+
+#forecastChart{
+    position: relative;
+    z-index: 2;
+}
+
+#riskIllustration{
+
+    position: absolute;
+
+    right: 15px;
+
+    bottom: 10px;
+
+    width: 230px;
+
+    opacity: 0.12;      /* <-- transparency */
+
+    filter: brightness(0.95);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    transition: all .6s ease;
+
+    user-select: none;
+}
