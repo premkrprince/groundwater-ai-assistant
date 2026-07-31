@@ -61,7 +61,15 @@ const translations = {
 
         lowRiskText: "Groundwater levels are healthy. No immediate concern.",
         moderateRiskText: "Groundwater levels are moderate. Water conservation is recommended.",
-        highRiskText: "Groundwater levels are low. Immediate groundwater recharge measures are recommended."
+        highRiskText: "Groundwater levels are low. Immediate groundwater recharge measures are recommended.",
+        mainTitle: "🌍 Groundwater AI Assistant",
+        subTitle: "AI-powered 3-Month Groundwater Outlook",
+        botHeader: "🤖 AI Assistant",
+        quarter1: "Quarter 1",
+        quarter2: "Quarter 2",
+        quarter3: "Quarter 3",
+        analysisTitle: "AI Groundwater Analysis",
+        districtText: "District"
 
     },
 
@@ -89,7 +97,15 @@ const translations = {
 
         lowRiskText: "भूजल स्तर सुरक्षित है। तत्काल कोई चिंता नहीं है।",
         moderateRiskText: "भूजल स्तर मध्यम है। जल संरक्षण की सलाह दी जाती है।",
-        highRiskText: "भूजल स्तर कम है। तत्काल भूजल पुनर्भरण उपाय आवश्यक हैं।"
+        highRiskText: "भूजल स्तर कम है। तत्काल भूजल पुनर्भरण उपाय आवश्यक हैं।",
+        mainTitle: "🌍 भूजल एआई सहायक",
+        subTitle: "एआई आधारित 3-महीने का भूजल पूर्वानुमान",
+        botHeader: "🤖 एआई सहायक",
+        quarter1: "तिमाही 1",
+        quarter2: "तिमाही 2",
+        quarter3: "तिमाही 3",
+        analysisTitle: "एआई भूजल विश्लेषण",
+        districtText: "जिला"
 
     },
 
@@ -117,7 +133,15 @@ const translations = {
 
         lowRiskText: "भूजल पातळी चांगली आहे. तातडीची चिंता नाही.",
         moderateRiskText: "भूजल पातळी मध्यम आहे. पाणी संवर्धन करण्याची शिफारस केली जाते.",
-        highRiskText: "भूजल पातळी कमी आहे. तातडीने भूजल पुनर्भरण उपाय आवश्यक आहेत."
+        highRiskText: "भूजल पातळी कमी आहे. तातडीने भूजल पुनर्भरण उपाय आवश्यक आहेत.",
+        mainTitle: "🌍 भूजल एआय सहाय्यक",
+        subTitle: "एआय आधारित ३ महिन्यांचा भूजल अंदाज",
+        botHeader: "🤖 एआय सहाय्यक",
+        quarter1: "तिमाही 1",
+        quarter2: "तिमाही 2",
+        quarter3: "तिमाही 3",
+        analysisTitle: "एआय भूजल विश्लेषण",
+        districtText: "जिल्हा"
 
     }
 
@@ -126,6 +150,21 @@ const translations = {
 function updateLanguage() {
 
     const lang = language.value;
+
+    document.getElementById("mainTitle").innerText =
+        translations[lang].mainTitle;
+
+    document.getElementById("subTitle").innerText =
+        translations[lang].subTitle;
+
+    document.getElementById("quarter1").innerText =
+    translations[lang].quarter1;
+
+    document.getElementById("quarter2").innerText =
+        translations[lang].quarter2;
+
+    document.getElementById("quarter3").innerText =
+        translations[lang].quarter3;
 
     // Labels
     document.getElementById("districtLabel").innerText =
@@ -166,7 +205,7 @@ function updateLanguage() {
     const botBody = document.getElementById("botBody");
 
     if (botHeader) {
-        botHeader.innerHTML = "🤖 AI Assistant";
+        botHeader.innerHTML =translations[lang].botHeader;
     }
 
     if (botBody) {
@@ -367,6 +406,8 @@ function updateChart(forecast){
                 },
 
                 y:{
+                    reverse: true,
+
 
                     ticks:{
 
@@ -441,58 +482,23 @@ function updateRisk(forecast){
 // GENERATE AI RESPONSE
 // =====================================================
 
-function updateResponse(data,forecast){
+function updateResponse(data, forecast) {
 
-response.innerHTML = `
+    response.innerHTML = `
 
-<h3>🤖 AI Groundwater Analysis ✅</h3>
+        <h3>🤖 ${translations[language.value].analysisTitle}</h3>
 
-<p><strong>District:</strong> ${district.value}</p>
+        <p>
+            <strong>${translations[language.value].districtText}:</strong>
+            ${district.value}
+        </p>
 
-<p>
+        <br>
 
-Forecast generated for
+        ${marked.parse(data.explanation)}
 
-<strong>${forecast[0].year}</strong>
-
-Quarter
-
-<strong>${forecast[0].quarter}</strong>
-
-to
-
-Quarter
-
-<strong>${forecast[2].quarter}</strong>
-
-</p>
-
-<br>
-
-${marked.parse(data.explanation)}
-
-<br>
-
-<p>
-
-This prediction is generated using
-
-Machine Learning,
-
-historical groundwater trends,
-
-rainfall patterns,
-
-lag features
-
-and AI explanation.
-
-</p>
-
-`;
-
+    `;
 }
-
 
 // =====================================================
 // PREDICT BUTTON

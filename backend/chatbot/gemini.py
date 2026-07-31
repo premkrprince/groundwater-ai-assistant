@@ -16,48 +16,58 @@ genai.configure(api_key=API_KEY)
 def generate_groundwater_explanation(district, forecast, language="en"):
   print("Selected language:", language)
   if language == "hi":
-      language_instruction = """
-  Write the ENTIRE response in Hindi.
-  Do NOT use English except numbers and the Markdown headings if absolutely necessary.
-  """
+    language_instruction = """
+    Write the ENTIRE response in Hindi.
+
+    Translate the headings also into Hindi.
+
+    Do NOT use English except numbers.
+    """
 
   elif language == "mr":
-      language_instruction = """
-  Write the ENTIRE response in Marathi.
-  Do NOT use English except numbers and the Markdown headings if absolutely necessary.
-  """
+    language_instruction = """
+    Write the ENTIRE response in Marathi.
+
+    Translate the headings also into Marathi.
+
+    Do NOT use English except numbers.
+    """
 
   else:
-      language_instruction = """
-  Write the ENTIRE response in English.
-  """
+    language_instruction = """
+    Write the ENTIRE response in English.
+    """
+
 
   prompt = f"""
-    
-  You are an expert hydrogeologist and groundwater policy advisor.
-  {language_instruction}
   
-  Analyze the following groundwater forecast.
+  You are a groundwater advisor for farmers.
 
   District: {district}
 
   Forecast:
   {forecast}
 
-  Instructions:
-  - Explain only using the forecast values.
-  - Mention seasonal trend.
-  - Explain possible reasons.
-  - Mention groundwater risk level (Low / Moderate / High).
-  - Give practical recommendations for:
-    • Citizens
-    • Farmers
-    • Local Government
-  Return the answer in Markdown using exactly these headings:
-  ## 📈 Overall Trend
-  ## 🌧 Possible Reasons
-  ## ⚠ Risk Level
-  ## ✅ Recommendations
+  {language_instruction}
+
+  Respond in exactly this format:
+
+  🌍 Groundwater Status:
+  (one short sentence)
+
+  🌧 Rainfall Impact:
+  (one short sentence)
+
+  💡 Advice:
+  (one practical recommendation)
+
+  Limit the total response to 60–80 words.
+
+  Avoid:
+  - Long explanations
+  - Technical terms
+  - Repeating the forecast
+  - Mentioning AI, ML, prediction models, or historical trends
   """
 
   model = genai.GenerativeModel("gemini-2.5-flash")
